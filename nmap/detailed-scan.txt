@@ -1,0 +1,20 @@
+# Nmap 7.95 scan initiated Fri Apr 25 13:00:15 2025 as: /usr/lib/nmap/nmap --privileged -A -p 8080 -oN detailed-scan.txt 192.168.159.130
+Nmap scan report for 192.168.159.130
+Host is up (0.00057s latency).
+
+PORT     STATE    SERVICE    VERSION
+8080/tcp filtered http-proxy
+Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+Device type: WAP|general purpose
+Running: Actiontec embedded, Linux 2.4.X
+OS CPE: cpe:/h:actiontec:mi424wr-gen3i cpe:/o:linux:linux_kernel cpe:/o:linux:linux_kernel:2.4.37
+OS details: Actiontec MI424WR-GEN3I WAP, DD-WRT v24-sp2 (Linux 2.4.37)
+Network Distance: 2 hops
+
+TRACEROUTE (using port 80/tcp)
+HOP RTT     ADDRESS
+1   0.14 ms 192.168.254.2
+2   0.15 ms 192.168.159.130
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Apr 25 13:00:39 2025 -- 1 IP address (1 host up) scanned in 24.05 seconds
